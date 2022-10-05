@@ -33,16 +33,13 @@ public class GuessGame {
         String isNear;
         int randomNumber = rand.nextInt(this.upperBound);
         int count = 0;
-        System.out.print("\nO Jogo Vai Começar!!!!\n" +
-                "Sua tentativa: ");
+        System.out.print("\nO Jogo Vai Começar!!!!\nSua tentativa: ");
 
         while(!isOver){
 
                 yourShot = sc.nextLine();
 
-                
-
-                if((yourShot.isEmpty() || yourShot.isEmpty()) && timer.getTime() < maxTime){
+                if(yourShot.isEmpty()){
                     System.out.print("Digite novamente: ");
                 }
 

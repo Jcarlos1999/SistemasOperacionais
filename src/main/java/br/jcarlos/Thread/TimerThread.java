@@ -27,7 +27,7 @@ public class TimerThread extends Thread {
                 this.time++;
                 if(time == maxTime){
                     interrupt();
-                    System.out.print("Seu tempo esgotou!!!!\nJogue novamente");
+                    System.out.print("\nSeu tempo esgotou!!!!\nJogue novamente");
                     System.exit(0);
                     
                 }
