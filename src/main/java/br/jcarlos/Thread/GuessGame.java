@@ -1,4 +1,4 @@
-package br.joaoc.Thread;
+package br.jcarlos.Thread;
 import java.util.Scanner;
 
 import java.util.Random;
@@ -42,7 +42,7 @@ public class GuessGame {
 
                 
 
-                if((yourShot.isBlank() || yourShot.isBlank()) && timer.getTime() < maxTime){
+                if((yourShot.isEmpty() || yourShot.isEmpty()) && timer.getTime() < maxTime){
                     System.out.print("Digite novamente: ");
                 }
 

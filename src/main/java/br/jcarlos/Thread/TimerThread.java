@@ -1,5 +1,4 @@
-package br.joaoc.Thread;
-import static org.mockito.Mockito.doNothing;
+package br.jcarlos.Thread;
 
 import java.lang.InterruptedException;
 
@@ -34,7 +33,7 @@ public class TimerThread extends Thread {
                 }
             }
         }catch (InterruptedException e){
-            doNothing();
+            System.out.println("\n");
         }
 
         

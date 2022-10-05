@@ -1,10 +1,6 @@
-package br.joaoc;
-import br.joaoc.Thread.GuessGame;
+package br.jcarlos;
+import br.jcarlos.Thread.GuessGame;
 
-/**
- * Hello world!
- *
- */
 public class ThreadApp 
 {
     public static void main( String[] args )
