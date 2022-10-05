@@ -5,12 +5,12 @@ import java.util.Random;
 
 public class GuessGame {
     
-    private Scanner sc;
-    private TimerThread timer; 
-    private Random rand;
+    private final Scanner sc;
+    private final TimerThread timer;
+    private final Random rand;
     private boolean isOver = false;
     private int maxTime = 30;
-    private int upperBound;
+    private final int  upperBound;
 
 
     public GuessGame(int upperBound){
@@ -28,42 +28,36 @@ public class GuessGame {
         this.maxTime = maxIime;
     }
 
-    public void Start(){
+    public void Start() {
         String yourShot;
         String isNear;
         int randomNumber = rand.nextInt(this.upperBound);
         int count = 0;
         System.out.print("\nO Jogo Vai Começar!!!!\nSua tentativa: ");
 
-        while(!isOver){
+        while (!isOver) {
 
-                yourShot = sc.nextLine();
+            yourShot = sc.nextLine();
 
-                if(yourShot.isEmpty()){
-                    System.out.print("Digite novamente: ");
-                }
-
-                else if(yourShot .equals(Integer.toString(randomNumber))){
-                    timer.interrupt();
-                    isOver = !isOver;
-                    System.out.println("\n*******************************************\nParabens, você acertou o numero!!! \n" +
+            if (yourShot.isEmpty()) {
+                System.out.print("Digite novamente: ");
+            } else if (yourShot.equals(Integer.toString(randomNumber))) {
+                timer.interrupt();
+                System.out.println("\n*******************************************\nParabens, você acertou o numero!!! \n" +
                         "Com " + count + " tentativas e em " + timer.getTime() + " segundos!!!!");
-                        
-                }
-                else if(timer.getTime() >= this.maxTime){
-                    isOver = !isOver;
-                }
-                else if(!yourShot .equals(Integer.toString(randomNumber))){
-                    count++;
-                    isNear = Integer.parseInt(yourShot) > randomNumber ? "Esse numero é maior" : "Esse numero é menor";
-                    System.out.print(isNear + "\nNova Tentativa: ");
-                    
-                }
-                
+                break;
+
+            } else if (timer.getTime() >= this.maxTime) {
+                isOver = !isOver;
+            } else if (!yourShot.equals(Integer.toString(randomNumber))) {
+                count++;
+                isNear = Integer.parseInt(yourShot) > randomNumber ? "Esse numero é maior" : "Esse numero é menor";
+                System.out.print(isNear + "\nNova Tentativa: ");
+
+            }
+
         }
 
     }
-
-    public boolean getIsOver(){ return this.isOver; }
 
 }

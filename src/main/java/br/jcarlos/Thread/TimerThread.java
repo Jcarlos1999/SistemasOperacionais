@@ -5,7 +5,7 @@ import java.lang.InterruptedException;
 public class TimerThread extends Thread {
 
     private int time;
-    private int maxTime = 5;
+    private int maxTime;
 
     public TimerThread(){
         this.time = 0;
