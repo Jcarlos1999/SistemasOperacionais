@@ -1,4 +1,5 @@
 package br.joaoc.Thread;
+import static org.mockito.Mockito.doNothing;
 
 import java.lang.InterruptedException;
 

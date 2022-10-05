@@ -1,6 +1,10 @@
 package br.joaoc;
 import br.joaoc.Thread.GuessGame;
 
+/**
+ * Hello world!
+ *
+ */
 public class ThreadApp 
 {
     public static void main( String[] args )
