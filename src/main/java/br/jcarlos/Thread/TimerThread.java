@@ -7,11 +7,6 @@ public class TimerThread extends Thread {
     private int time;
     private int maxTime;
 
-    public TimerThread(){
-        this.time = 0;
-        start();
-    }
-
     public TimerThread(int maxTime){
         this.time = 0;
         this.maxTime = maxTime;
