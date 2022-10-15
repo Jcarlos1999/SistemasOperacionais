@@ -16,7 +16,7 @@ public class Process {
     }
 
     public Process(String nameProcess, int burstTime, int priority){
-        this.PID = new Random().nextInt(3);
+        this.PID = new Random().nextInt(10000);
         this.nameProcess = nameProcess;
         this.burstTime = burstTime;
         this.priority = priority;
@@ -40,6 +40,10 @@ public class Process {
 
     public int getPriority() {
         return priority;
+    }
+
+    public String getNameProcess() {
+        return nameProcess;
     }
 
 }

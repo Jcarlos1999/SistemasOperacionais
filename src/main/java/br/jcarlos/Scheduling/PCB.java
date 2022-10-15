@@ -30,6 +30,8 @@ public class PCB {
         });
     }
 
-
+    public List<Process> getProcessList() {
+        return processList;
+    }
 
 }

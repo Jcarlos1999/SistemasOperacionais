@@ -20,8 +20,7 @@ public class GuessGame {
     }
 
     public void Start() {
-        Random rand = new Random();
-        int randomNumber = rand.nextInt(this.upperBound);
+        int randomNumber = new Random().nextInt(this.upperBound);
         Scanner sc = new Scanner(System.in);
         TimerThread timer = new TimerThread(maxTime);
         String yourShot;
@@ -36,12 +35,13 @@ public class GuessGame {
                 System.out.print("Digite novamente: ");
             } else if (yourShot.equals(Integer.toString(randomNumber))) {
                 timer.interrupt();
-                System.out.println("\n*******************************************\nParabens, você acertou o numero!!! \n" +
+                System.out.println("\n****************************************\nParabens, você acertou o numero!!! \n" +
                         "Com " + count + " tentativas e em " + timer.getTime() + " segundos!!!!");
                 break;
 
             }else if (!yourShot.equals(Integer.toString(randomNumber))) {
-                System.out.print(Integer.parseInt(yourShot) > randomNumber ? "Esse numero é maior\nNova Tentativa: " : "Esse numero é menor" + "\nNova Tentativa: ");
+                System.out.print(Integer.parseInt(yourShot) > randomNumber ? "Esse numero é maior\nNova Tentativa: "
+                                                                        : "Esse numero é menor" + "\nNova Tentativa: ");
 
             }
 
