@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class GuessGame {
-    
+
     private int maxTime = 30;
     private final int  upperBound;
 
@@ -20,15 +20,15 @@ public class GuessGame {
     }
 
     public void Start() {
-        Scanner sc = new Scanner(System.in);
         Random rand = new Random();
+        int randomNumber = rand.nextInt(this.upperBound);
+        Scanner sc = new Scanner(System.in);
         TimerThread timer = new TimerThread(maxTime);
         String yourShot;
-        int randomNumber = rand.nextInt(this.upperBound);
         int count = 0;
         System.out.print("\nO Jogo Vai Começar!!!!\nSua tentativa: ");
 
-        while (!isOver) {
+        while (true) {
 
             yourShot = sc.nextLine();
 

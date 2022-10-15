@@ -1,10 +1,10 @@
-package br.jcarlos.Schudeling;
+package br.jcarlos.Scheduling;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
 
-public class GenProcess {
+public class PCB {
 
     List<Process> processList = new ArrayList<>();
 
@@ -16,7 +16,7 @@ public class GenProcess {
         this.processList.sort(new Comparator<Process>() {
             @Override
             public int compare(Process p1, Process p2) {
-                return Integer.valueOf(p1.getPriority()).compareTo(p2.getPriority()) ;
+                return Integer.compare(p1.getPriority(), p2.getPriority());
             }
         });
     }
@@ -25,7 +25,7 @@ public class GenProcess {
         this.processList.sort(new Comparator<Process>() {
             @Override
             public int compare(Process p1, Process p2) {
-                return Integer.valueOf(p1.getBurstTime()).compareTo(p2.getBurstTime()) ;
+                return Integer.compare(p1.getBurstTime(), p2.getBurstTime());
             }
         });
     }

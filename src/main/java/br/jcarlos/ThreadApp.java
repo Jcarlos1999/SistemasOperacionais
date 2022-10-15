@@ -5,7 +5,7 @@ public class ThreadApp
 {
     public static void main( String[] args )
     {
-        GuessGame game = new GuessGame(100, 5);
+        GuessGame game = new GuessGame(100, 40);
 
         game.Start();
     }

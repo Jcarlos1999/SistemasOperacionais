@@ -1,12 +1,13 @@
-package br.jcarlos.Schudeling;
+package br.jcarlos.Scheduling;
 
 public class Process {
 
-    private String nameProcess;
+    private final String nameProcess;
     private int burstTime;
     private int priority;
 
     public Process(String nameProcess, int burstTime){
+
         this.nameProcess = nameProcess;
         this.burstTime = burstTime;
     }
@@ -15,6 +16,14 @@ public class Process {
         this.nameProcess = nameProcess;
         this.burstTime = burstTime;
         this.priority = priority;
+    }
+
+    @Override
+    public String toString() {
+        return this.priority != 0 ? "\n\t\t" + nameProcess +
+                                    " | busttime = " + burstTime + " | Priority = " + priority:
+                                    "\n\t\t" + nameProcess +
+                                    " | busttime = " + burstTime;
     }
 
     public int getBurstTime() {
@@ -29,7 +38,8 @@ public class Process {
         return priority;
     }
 
-    public void setPriority(int priority) {
-        this.priority = priority;
+    public String getNameProcess() {
+        return nameProcess;
     }
+
 }
