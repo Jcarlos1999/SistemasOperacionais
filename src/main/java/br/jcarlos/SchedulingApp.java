@@ -18,7 +18,7 @@ public class SchedulingApp {
         queue.addProcessToList(process2);
         queue.addProcessToList(process3);
 
-        FCFS fcfs = new FCFS(queue, 500);
+        FCFS fcfs = new FCFS(queue, 100);
 
         fcfs.run();
 

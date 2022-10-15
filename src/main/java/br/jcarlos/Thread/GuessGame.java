@@ -31,7 +31,7 @@ public class GuessGame {
         while (true) {
 
             yourShot = sc.nextLine();
-
+            count++;
             if (yourShot.isEmpty()) {
                 System.out.print("Digite novamente: ");
             } else if (yourShot.equals(Integer.toString(randomNumber))) {
@@ -41,7 +41,6 @@ public class GuessGame {
                 break;
 
             }else if (!yourShot.equals(Integer.toString(randomNumber))) {
-                count++;
                 System.out.print(Integer.parseInt(yourShot) > randomNumber ? "Esse numero é maior\nNova Tentativa: " : "Esse numero é menor" + "\nNova Tentativa: ");
 
             }
