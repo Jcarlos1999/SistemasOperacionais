@@ -20,7 +20,7 @@ public class SchedulingApp {
         queue.addProcessToList(process3);
 
         // FCFS fcfs = new FCFS(queue, 100);
-        RR rr = new RR(queue,2);
+        RR rr = new RR(queue,2, 1000);
 
         rr.run();
 

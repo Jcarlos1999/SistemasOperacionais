@@ -2,24 +2,25 @@ package br.jcarlos;
 
 import br.jcarlos.Scheduling.PCB;
 import br.jcarlos.Scheduling.Process;
+import br.jcarlos.Scheduling.RR;
 import org.junit.Assert;
 import org.junit.Test;
 
 
 public class SchedulingTest
 {
-    PCB queued = new PCB();
+    PCB queue = new PCB();
     @Test
     public void shouldHaveSize(){
         Process process1 = new Process("For test1 ",1);
         Process process2 = new Process("For test2 ",1);
         Process process3 = new Process("For test3",1);
 
-        queued.addProcessToList(process1);
-        queued.addProcessToList(process2);
-        queued.addProcessToList(process3);
+        queue.addProcessToList(process1);
+        queue.addProcessToList(process2);
+        queue.addProcessToList(process3);
 
-        Assert.assertEquals(3, queued.getProcessList().size());
+        Assert.assertEquals(3, queue.getProcessList().size());
     }
 
     @Test
@@ -29,15 +30,15 @@ public class SchedulingTest
         Process process2 = new Process("For test2 ",12);
         Process process3 = new Process("For test3",30);
 
-        queued.addProcessToList(process1);
-        queued.addProcessToList(process2);
-        queued.addProcessToList(process3);
+        queue.addProcessToList(process1);
+        queue.addProcessToList(process2);
+        queue.addProcessToList(process3);
 
-        queued.sortByBurstTime(process1);
+        queue.sortByBurstTime(process1);
 
-        Assert.assertEquals(12, queued.getProcessList().get(0).getBurstTime());
-        Assert.assertEquals(22, queued.getProcessList().get(1).getBurstTime());
-        Assert.assertEquals(30, queued.getProcessList().get(2).getBurstTime());
+        Assert.assertEquals(12, queue.getProcessList().get(0).getBurstTime());
+        Assert.assertEquals(22, queue.getProcessList().get(1).getBurstTime());
+        Assert.assertEquals(30, queue.getProcessList().get(2).getBurstTime());
 
 
 
@@ -55,6 +56,30 @@ public class SchedulingTest
         Assert.assertEquals("Sub", process2.getNameProcess());
         Assert.assertEquals(15, process2.getBurstTime());
         Assert.assertEquals(2,process2.getPriority());
+
+    }
+
+    @Test
+    public void shouldRRWorks() throws InterruptedException {
+        Process process1 = new Process("Test 1",7);
+        Process process2 = new Process("Test 2",5 );
+        Process process3 = new Process("Test 3",4);
+
+        queue.addProcessToList(process1);
+        queue.addProcessToList(process2);
+        queue.addProcessToList(process3);
+
+        RR rr = new RR(queue, 3);
+
+        Assert.assertEquals(rr.run(), 1);
+    }
+
+    @Test
+    public void shouldReturnIsEmpty() throws  InterruptedException{
+        RR rr = new RR(queue, 2);
+
+
+       Assert.assertEquals(rr.run(), 0);
 
     }
 

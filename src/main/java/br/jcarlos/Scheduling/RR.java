@@ -2,18 +2,26 @@ package br.jcarlos.Scheduling;
 
 public class RR {
 
-    private PCB pcb;
+    private final PCB pcb;
 
-    private int quantum;
+    private final int quantum;
 
     private int count = 0;
+
+    private int timeOfCycle = 0;
+
+    public RR(PCB pcb, int quantum, int timeOfCycle){
+        this.pcb = pcb;
+        this.quantum =  quantum;
+        this.timeOfCycle = timeOfCycle;
+    }
 
     public RR(PCB pcb, int quantum){
         this.pcb = pcb;
         this.quantum =  quantum;
     }
 
-    public void run() throws InterruptedException{
+    public int run() throws InterruptedException{
 
         System.out.print("\t\tQuantum: " + quantum + "\n\t\tProcessos:" );
         System.out.println(pcb.processList.toString());
@@ -21,6 +29,7 @@ public class RR {
 
         if(pcb.processList.isEmpty()){
             System.out.println("A lista esta vazia!!!");
+            return 0 ;
         }else {
             while (pcb.processList.size() != 0) {
 
@@ -30,7 +39,7 @@ public class RR {
                         pcb.processList.get(count).setBurstTime(0);
                     }
                     System.out.println(pcb.processList.get(count).toString());
-                    Thread.sleep(1000);
+                    Thread.sleep(timeOfCycle);
                     count++;
 
 
@@ -43,6 +52,8 @@ public class RR {
                 }
 
             }
+
+            return 1;
         }
 
     }
