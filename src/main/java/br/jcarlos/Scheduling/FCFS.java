@@ -3,7 +3,7 @@ package br.jcarlos.Scheduling;
 public class FCFS {
 
     private final PCB pcb;
-    private int timeOfCycle;
+    private int timeOfCycle = 0;
 
     public FCFS(PCB processList){
         this.pcb = processList;
@@ -16,12 +16,13 @@ public class FCFS {
 
 
 
-    public void run() throws InterruptedException {
+    public int run() throws InterruptedException {
 
         // Start Algorithm
 
         if(this.pcb.processList.isEmpty()){
             System.out.println("A lista está vazia");
+            return 0;
         }else{
             while(pcb.processList.size() != 0){
                 if(pcb.processList.get(0).getBurstTime() > 0){
@@ -32,6 +33,7 @@ public class FCFS {
                     pcb.processList.remove(0);
                 }
             }
+            return 1;
         }
     }
 }

@@ -1,5 +1,6 @@
 package br.jcarlos;
 
+import br.jcarlos.Scheduling.FCFS;
 import br.jcarlos.Scheduling.PCB;
 import br.jcarlos.Scheduling.Process;
 import br.jcarlos.Scheduling.RR;
@@ -60,6 +61,30 @@ public class SchedulingTest
     }
 
     @Test
+    public void shouldFCFSWorks() throws InterruptedException {
+        Process process1 = new Process("Test 1",7);
+        Process process2 = new Process("Test 2",5 );
+        Process process3 = new Process("Test 3",4);
+
+        queue.addProcessToList(process1);
+        queue.addProcessToList(process2);
+        queue.addProcessToList(process3);
+
+        FCFS rr = new FCFS(queue);
+
+        Assert.assertEquals(rr.run(), 1);
+    }
+
+    @Test
+    public void shouldFCFSReturnIsEmpty() throws  InterruptedException{
+        FCFS rr = new FCFS(queue);
+
+
+        Assert.assertEquals(rr.run(), 0);
+
+    }
+
+    @Test
     public void shouldRRWorks() throws InterruptedException {
         Process process1 = new Process("Test 1",7);
         Process process2 = new Process("Test 2",5 );
@@ -75,7 +100,7 @@ public class SchedulingTest
     }
 
     @Test
-    public void shouldReturnIsEmpty() throws  InterruptedException{
+    public void shouldRRReturnIsEmpty() throws  InterruptedException{
         RR rr = new RR(queue, 2);
 
 
