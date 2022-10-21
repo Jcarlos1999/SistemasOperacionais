@@ -94,6 +94,7 @@ public class SchedulingTest
         queue.addProcessToList(process2);
         queue.addProcessToList(process3);
 
+        queue.sortByBurstTime(process1);
         RR rr = new RR(queue, 3);
 
         Assert.assertEquals(rr.run(), 1);
