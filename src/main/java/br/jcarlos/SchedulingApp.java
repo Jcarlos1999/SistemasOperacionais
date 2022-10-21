@@ -1,9 +1,7 @@
 package br.jcarlos;
 
-import br.jcarlos.Scheduling.FCFS;
-import br.jcarlos.Scheduling.PCB;
+import br.jcarlos.Scheduling.*;
 import br.jcarlos.Scheduling.Process;
-import br.jcarlos.Scheduling.RR;
 
 public class SchedulingApp {
 
@@ -20,9 +18,9 @@ public class SchedulingApp {
         queue.addProcessToList(process3);
 
         // FCFS fcfs = new FCFS(queue, 100);
-        RR rr = new RR(queue,2, 1000);
+        SJF sjf = new SJF(queue, 1000);
 
-        rr.run();
+        sjf.run();
 
 
     }

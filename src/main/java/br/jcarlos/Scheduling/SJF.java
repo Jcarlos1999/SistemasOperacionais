@@ -1,15 +1,15 @@
 package br.jcarlos.Scheduling;
 
-public class FCFS {
+public class SJF {
 
     private final PCB pcb;
     private int timeOfCycle = 0;
 
-    public FCFS(PCB processList){
+    public SJF(PCB processList){
         this.pcb = processList;
     }
 
-    public FCFS(PCB processList, int timeOfCycle){
+    public SJF(PCB processList, int timeOfCycle){
         this.pcb = processList;
         this.timeOfCycle = timeOfCycle;
     }
@@ -19,6 +19,7 @@ public class FCFS {
     public int run() throws InterruptedException {
 
         // Start Algorithm
+        pcb.sortByBurstTime(pcb.processList.get(0));
         System.out.println(pcb.processList.toString());
         System.out.println("-----------------------------------------------------------");
 
@@ -38,4 +39,6 @@ public class FCFS {
             return 1;
         }
     }
+
+
 }
